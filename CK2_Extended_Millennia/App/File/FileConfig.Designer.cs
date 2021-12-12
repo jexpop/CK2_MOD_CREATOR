@@ -84,6 +84,7 @@ namespace CK2_Extended_Millennia
             this.DefineDatesSaveButton.TabIndex = 6;
             this.DefineDatesSaveButton.Text = "Guardar Cambiios";
             this.DefineDatesSaveButton.UseVisualStyleBackColor = true;
+            this.DefineDatesSaveButton.Click += new System.EventHandler(this.DefineDatesSaveButton_Click);
             // 
             // GameModPathTextBox
             // 

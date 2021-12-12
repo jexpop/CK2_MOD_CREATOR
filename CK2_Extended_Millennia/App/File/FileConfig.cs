@@ -44,5 +44,27 @@ namespace CK2_Extended_Millennia
         {
 
         }
+
+        private void DefineDatesSaveButton_Click(object sender, EventArgs e)
+        {
+
+            if(string.IsNullOrEmpty(GamePathTextBox.Text.Trim()) | 
+                string.IsNullOrEmpty(BuildModPathTextBox.Text.Trim()) |
+                string.IsNullOrEmpty(GameModPathTextBox.Text.Trim()) |
+                string.IsNullOrEmpty(ModNameTextBox.Text.Trim()))
+            {
+                MessageBox.Show("Todos los campos deben ser informados.", "Campos sin informar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string sql;
+                sql = "UPDATE PARAMS SET Value='"+ GamePathTextBox.Text.Trim() + "' WHERE Condition1='paths' AND Condition2='game'; " +
+                "UPDATE PARAMS SET Value='"+ BuildModPathTextBox.Text.Trim() + "' WHERE Condition1='paths' AND Condition2='mod_build'; " +
+                "UPDATE PARAMS SET Value='"+ GameModPathTextBox.Text.Trim() + "' WHERE Condition1='paths' AND Condition2='mod_game'; " +
+                "UPDATE PARAMS SET Value='"+ ModNameTextBox.Text.Trim() + "' WHERE Condition1='paths' AND Condition2='mod_name'; ";
+                SqlConfig.SqlStatementExecute(sql);                
+            }
+
+        }
     }
 }
